@@ -81,7 +81,7 @@ A lightweight, modern, and high-performance desktop application designed for Alg
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/lycee-yaghmouracen.git
+git clone https://github.com/anesdevv/lycee-yaghmouracen.git
 cd lycee-yaghmouracen
 ```
 
