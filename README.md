@@ -1,5 +1,5 @@
-# Lycée Yaghmouracen — High School Management System
-*Système de Gestion Administrative Scolaire*
+# Lycée Yaghmouracen: High School Management System
+*Système de gestion administrative scolaire*
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![GUI](https://img.shields.io/badge/GUI-PySide6%20%28Qt6%29-brightgreen.svg)](https://wiki.qt.io/Qt_for_Python)
@@ -7,35 +7,35 @@
 [![Tests](https://img.shields.io/badge/Tests-Pytest%20Passing-success.svg)](https://docs.pytest.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A lightweight, modern, and high-performance desktop application designed for Algerian high school administrative management (*Lycée Yaghmouracen*). Built with **Python**, **PySide6 (Qt 6)**, and **SQLite**, it operates 100% offline, starts instantly, and provides streamlined workflows for managing students, faculty, staff, and attendance records.
+An offline desktop application for administrative management at Lycée Yaghmouracen in Algeria. Built with Python, PySide6 (Qt 6), and SQLite, it runs locally without internet access and provides workflows for managing students, faculty, staff, and attendance.
 
 ---
 
-## Key Features
+## Features
 
-- **Executive Dashboard**: Real-time KPI summary cards (total enrolled students, active faculty/staff, registered class sections, cumulative absences), gender ratio breakdowns, and class distributions.
-- **Student Information Management**: Complete student lifecycle tracking (registration, profile editing, photo upload, section assignments, contact info, and individual student printable summary dossiers).
-- **Staff & Faculty Administration**: Manage teachers, administrative agents, and school monitors with specialty, role, salary, and phone tracking. Generates official **Work Certificates** (*Attestation de Travail*).
-- **Attendance & Absence System**: Fast, responsive daily classroom attendance switcher with **atomic batch saving**, automated absence counter synchronization, and chronological date filtering.
-- **Official PDF Report Engine**: Automated generation of publication-ready, branded PDF reports using ReportLab (class rosters, employee directories, periodic attendance sheets, student cards, and official certificates) with Algerian educational header templates.
-- **Excel Data Export**: Instant `.xlsx` exports with formatted header bands and auto-adjusted columns using Pandas and OpenPyXL for external record keeping and ministry submissions.
-- **Security & Speed**: Cryptographically secure **PBKDF2 salted password hashing** (100,000 iterations), automatic legacy hash migration, SQLite foreign keys with cascading deletions, and indexed queries for sub-millisecond local execution.
-- **Bilingual Interface**: Seamless runtime language switching between **French** (*Français*) and **English**.
+- Administrative dashboard: summary metrics for enrolled students, active faculty and staff, class sections, cumulative absences, gender ratios, and class distributions
+- Student records: registration, profile updates, photo upload, section assignments, contact details, and printable student summary dossiers
+- Staff administration: records for teachers, administrative agents, and school monitors with specialty, role, salary, and phone tracking, including work certificates (Attestation de Travail)
+- Attendance tracking: daily classroom roll call with batch saving, automatic absence counter synchronization, and date filtering
+- PDF reports: class rosters, employee directories, periodic attendance sheets, student cards, and official certificates using ReportLab with Algerian educational header templates
+- Excel exports: `.xlsx` exports with formatted headers using Pandas and OpenPyXL for records and ministry submissions
+- Authentication and security: PBKDF2 password hashing (100,000 iterations), legacy hash migration, SQLite foreign keys with cascading deletions, and indexed queries
+- Bilingual interface: language toggle between French and English
 
 ---
 
-## Technical Stack & Architecture
+## Tech stack and architecture
 
 | Layer | Component | Description |
 |---|---|---|
-| **GUI Framework** | [PySide6 (Qt 6)](https://wiki.qt.io/Qt_for_Python) | Modern desktop interface with custom dark/light QSS stylesheets |
-| **Persistence** | [SQLite3](https://www.sqlite.org/) | Embedded zero-latency relational engine with enforced foreign keys |
-| **PDF Engine** | [ReportLab](https://www.reportlab.com/) | Programmatic document layout and vector typography |
-| **Spreadsheets** | [Pandas](https://pandas.pydata.org/) & [OpenPyXL](https://openpyxl.readthedocs.io/) | Dataframe transformation and styled `.xlsx` workbooks |
-| **Image Processing**| [Pillow (PIL)](https://python-pillow.org/) | Student identification photo handling and rendering |
-| **Testing** | [Pytest](https://docs.pytest.org/) | Automated unit and integration test suite |
+| GUI Framework | [PySide6 (Qt 6)](https://wiki.qt.io/Qt_for_Python) | Desktop interface with dark and light QSS stylesheets |
+| Database | [SQLite3](https://www.sqlite.org/) | Embedded relational engine with foreign keys enabled |
+| PDF Engine | [ReportLab](https://www.reportlab.com/) | Programmatic document generation and vector layout |
+| Spreadsheets | [Pandas](https://pandas.pydata.org/) & [OpenPyXL](https://openpyxl.readthedocs.io/) | Dataframe transformation and `.xlsx` workbooks |
+| Image Processing | [Pillow (PIL)](https://python-pillow.org/) | Student photo handling and resizing |
+| Testing | [Pytest](https://docs.pytest.org/) | Automated unit and integration test suite |
 
-### Repository Structure
+### Repository structure
 
 ```text
 ├── assets/                     # Application logos, branding, and UI icons
@@ -72,20 +72,22 @@ A lightweight, modern, and high-performance desktop application designed for Alg
 
 ## Prerequisites
 
-- **Python**: Version `3.10` or higher (tested up to Python `3.14`).
-- **Operating System**: Windows 10 / Windows 11 (Cross-platform compatible with Linux / macOS).
+- Python: version 3.10 or higher
+- Operating System: Windows 10/11, Linux, or macOS
 
 ---
 
-## Installation & Quick Start
+## Installation and quick start
 
-### 1. Clone the Repository
+### 1. Clone the repository
+
 ```bash
 git clone https://github.com/anesdevv/lycee-yaghmouracen.git
 cd lycee-yaghmouracen
 ```
 
-### 2. Create and Activate a Virtual Environment
+### 2. Create and activate a virtual environment
+
 ```powershell
 # Windows (PowerShell)
 python -m venv venv
@@ -96,28 +98,31 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+### 3. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Application
+### 4. Run the application
+
 ```bash
 python main.py
 ```
 
-### 5. Default Admin Credentials
-When launching the application for the first time, log in using the pre-configured administrator account:
-- **Username**: `admin`
-- **Password**: `admin`
+### 5. Default admin credentials
 
-> *Note: The password can be updated at any time directly through the application or using `db.change_admin_password()`.*
+When launching the application for the first time, log in using the initial administrator account:
+- Username: `admin`
+- Password: `admin`
+
+The password can be updated directly within the application or via `db.change_admin_password()`.
 
 ---
 
-## Running Automated Tests
+## Running automated tests
 
-Run the test suite to verify database operations, encryption, and document generation:
+Run the test suite to verify database operations, authentication, and document exports:
 
 ```bash
 # Run all unit and integration tests
@@ -146,16 +151,16 @@ ADMIN_DEFAULT_PASS=admin
 
 ## Contributing
 
-Contributions, feature suggestions, and bug reports are welcome:
+Contributions, bug reports, and suggestions are welcome:
 1. Fork the repository.
 2. Create a feature branch: `git checkout -b feature/new-feature`
 3. Commit your changes: `git commit -m "feat: add new feature"`
 4. Run tests: `pytest -v`
 5. Push to your branch: `git push origin feature/new-feature`
-6. Open a Pull Request.
+6. Open a pull request.
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
